@@ -1,0 +1,17 @@
+[Unit]
+Description=ManagerBot — Telegram personal manager bot
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=guts
+Group=guts
+WorkingDirectory=/home/viltrumlik/managerbot
+ExecStart=/home/viltrumlik/managerbot/venv/bin/python /home/viltrumlik/managerbot/bot.py
+Restart=always
+RestartSec=5
+# .env in WorkingDirectory is loaded by python-dotenv at startup.
+
+[Install]
+WantedBy=multi-user.target
